@@ -8,9 +8,9 @@ const workshopRaw = 48,
 const maximumScore = 100;
 
 // Part 2
-const calculatedWorkshopScore = (workshopRaw / 60) * 20;
-const totalScore = calculatedWorkshopScore + attendance + project + midterm + final;
-const percentage = (totalScore / maximumScore) * 100;
+const calculatedWorkshopScore = ((workshopRaw / 60) * 20).toFixed(2);
+const totalScore = Number(calculatedWorkshopScore) + attendance + project + midterm + final;
+const percentage = ((totalScore / maximumScore) * 100).toFixed(2);
 
 const remainScoreUntil80 = 80 - totalScore;
 
@@ -21,5 +21,5 @@ console.log(`คะแนน Project: ${project} คะแนน`);
 console.log(`คะแนน Midterm: ${midterm} คะแนน`);
 console.log(`คะแนน Final: ${final} คะแนน`);
 console.log(`คะแนนรวม: ${totalScore} คะแนน`);
-console.log(`เปอร์เซ็นต์: ${percentage.toFixed(2)}%`);
+console.log(`เปอร์เซ็นต์: ${percentage}%`);
 console.log(`คะแนนที่เหลือจนถึง 80: ${remainScoreUntil80} คะแนน`);
