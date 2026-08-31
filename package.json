@@ -1,0 +1,19 @@
+{
+  "name": "ce385-w2",
+  "version": "1.0.0",
+  "description": "- [Week 2](/week2/workshop) - [Week 3](/week3/workshop)",
+  "main": "index.js",
+	"type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a1um1/ce385-w2.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/a1um1/ce385-w2/issues"
+  },
+  "homepage": "https://github.com/a1um1/ce385-w2#readme"
+}
