@@ -55,10 +55,12 @@ function findById(students, id) {
 }
 
 function findByMajor(students, major) {
+  // filter by major
   return students.filter((student) => student.major === major);
 }
 
 function hasFailingStudent(students) {
+  // filter if score less than 50
   return students.filter((student) => student.score < 50);
 }
 
