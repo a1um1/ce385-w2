@@ -60,12 +60,14 @@ function findByMajor(students, major) {
 }
 
 function hasFailingStudent(students) {
-  // filter if score less than 50
-  return students.filter((student) => student.score < 50);
+  // return boolen if there a student score less than 50
+  // using some method
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+  return students.some((student) => student.score < 50);
 }
 
 function getEmail(students, id) {
-  return findById(students, id)?.contact?.email;
+  return findById(students, id)?.contact?.email || "ไม่พบข้อมูลติดต่อ";
 }
 
 // Part 2 - Test
