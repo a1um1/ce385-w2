@@ -60,16 +60,29 @@ function toGrade(score) {
   return grading_scores.find((rule) => score >= rule.minScore)?.grade || "F";
 }
 
-function fetchStudentByIdAsync(id) {
-  return new Promise((resolve, reject) => {
-    if (typeof id !== "string" || id.length === 0) return reject(new Error("รหัสนักศึกษาไม่ถูกต้อง"));
-    const find = students.find((s) => s.id === id);
-    if (!find) return reject(new Error(`ไม่พบรหัสนักศึกษา ${id}`));
-    setTimeout(() => {
-      return resolve(find);
-    }, 300);
-  });
+function promisify(fn) {
+  return function (...args) {
+    return new Promise((resolve, reject) => {
+      fn(
+        ...args,
+        (err, result) => {
+          if (err) return reject(err);
+          return resolve(result);
+        },
+      );
+    });
+  };
 }
+function fetchStudentById(id, callback) {
+  if (typeof id !== "string" || id.length === 0) return callback(new Error("รหัสนักศึกษาไม่ถูกต้อง"));
+  const find = students.find((s) => s.id === id);
+  if (!find) return callback(new Error(`ไม่พบรหัสนักศึกษา ${id}`));
+  setTimeout(() => {
+    return callback(null, find);
+  }, 300);
+}
+
+const fetchStudentByIdAsync = promisify(fetchStudentById);
 
 const tests = ["1", "42", undefined, ""];
 
