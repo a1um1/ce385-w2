@@ -75,7 +75,7 @@ todoRouter
     res.status(201).json(newTodo);
   });
 
-app.use("/api/todos", todoRouter);
+app.use("/api/v1/todos", todoRouter);
 
 const PORT = 3002;
 
