@@ -4,3 +4,4 @@
 - [Week 2](/week2/workshop)
 - [Week 3](/week3/workshop)
 - [Week 4](/week4/workshop)
+- [Week 5](/week5)
