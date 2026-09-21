@@ -42,19 +42,18 @@ function validateTodo(req, res, next) {
   next();
 }
 
-app
-  .get("/", (req, res) => {
-    res.send("สวัสดี Postman");
-  })
-  .get("/health", (req, res) => {
-    res.json({ status: "ok" });
-  });
+app.get("/", (req, res) => {
+  res.send("สวัสดี Postman");
+});
 
 const todoRouter = express.Router(); //  Create new router for /api/todos
 
 todoRouter
   .get("/", (req, res) => {
     res.json(TODOS);
+  })
+  .get("/health", (req, res) => {
+    res.json({ status: "ok" });
   })
   .get("/:id", (req, res) => {
     const { id } = req.params;
@@ -77,7 +76,7 @@ todoRouter
 
 app.use("/api/v1/todos", todoRouter);
 
-const PORT = 3002;
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);
